@@ -77,7 +77,7 @@ public class Hand implements Comparable<Hand> {
     			return true;
     		}
     		
-    		if(!cards.get(i).getSuit().equals(cards.get(i+1).getSuit()));
+    		if(!(cards.get(i).getSuit().equals(cards.get(i+1).getSuit())));
     		{
     			return false;
     		}
