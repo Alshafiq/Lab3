@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 /**
  * A poker hand is a list of cards, which can be of some "kind" (pair, straight, etc.)
  * 
@@ -29,11 +30,11 @@ public class Hand implements Comparable<Hand> {
 	 * e.g., "TD TC TH 7C 7D" returns True for n=2 and n=3, and False for n=1 and n=4
      */
     protected boolean hasNKind(int n) {
-    		if(n==2 || n==3)
-    		{
-    			return true;
-    		}
-    		return false;
+		if(n==2 || n==3)
+		{
+			return true;
+		}
+		return false;
     }
     
     /**
@@ -68,11 +69,20 @@ public class Hand implements Comparable<Hand> {
      * @returns true if the hand is a flush
      */
     public boolean isFlush() {
-    	for(Card c: cards)
+    	
+    	for(int i=0; i<cards.size(); i++)
     	{
+    		if(i == cards.size()-1)
+    		{
+    			return true;
+    		}
     		
+    		if(!cards.get(i).getSuit().equals(cards.get(i+1).getSuit()));
+    		{
+    			return false;
+    		}
     	}
-    	return false;
+    	return true;
     }
     
     @Override
