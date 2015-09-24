@@ -53,16 +53,11 @@ public class Hand implements Comparable<Hand> {
      * @returns true if the hand is a straight 
      */
     public boolean isStraight() {
-    	if(cards.size() != 5) {
-            return false;
-        }
-    	
-        else {
-        	for(Card c: cards)
-        	{
-        	}
-        	return false;
-        }
+    	for(Card c: cards)
+    	{
+    	}
+    	return false;
+        
     }
     
     /**
@@ -77,7 +72,7 @@ public class Hand implements Comparable<Hand> {
     			return true;
     		}
     		
-    		if(!(cards.get(i).getSuit().equals(cards.get(i+1).getSuit())));
+    		if( cards.get(i).getSuit() != cards.get(i+1).getSuit() );
     		{
     			return false;
     		}
@@ -89,6 +84,12 @@ public class Hand implements Comparable<Hand> {
     public int compareTo(Hand h) {
         //hint: delegate!
 		//and don't worry about breaking ties
+    	Kind thiskind = this.kind();
+    	
+    	if(h.kind() == Kind.STRAIGHT_FLUSH)
+    	{
+    		
+    	}
     	return 0;
     }
     
