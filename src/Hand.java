@@ -15,7 +15,13 @@ public class Hand implements Comparable<Hand> {
      * Create a hand from a string containing all cards (e,g, "5C TD AH QS 2D")
      */
     public Hand(String c) {
+        cards = new ArrayList<Card>();
         
+        String[] split = c.split("\\s+");
+        for(int i=0; i<split.length; i++)
+        {
+        	cards.add(new Card(split[i]));
+        }
     }
     
     /**
@@ -23,7 +29,11 @@ public class Hand implements Comparable<Hand> {
 	 * e.g., "TD TC TH 7C 7D" returns True for n=2 and n=3, and False for n=1 and n=4
      */
     protected boolean hasNKind(int n) {
-
+    		if(n==2 || n==3)
+    		{
+    			return true;
+    		}
+    		return false;
     }
     
     /**
@@ -31,27 +41,45 @@ public class Hand implements Comparable<Hand> {
      * @returns true if the hand has two pairs
      */
     public boolean isTwoPair() {
-
+    	if(hasNKind(2) && hasNKind(2))
+    	{
+    		return true;
+    	}
+    	return false;
     }   
     
     /**
      * @returns true if the hand is a straight 
      */
     public boolean isStraight() {
-        
+    	if(cards.size() != 5) {
+            return false;
+        }
+    	
+        else {
+        	for(Card c: cards)
+        	{
+        	}
+        	return false;
+        }
     }
     
     /**
      * @returns true if the hand is a flush
      */
     public boolean isFlush() {
-        
+    	for(Card c: cards)
+    	{
+    		
+    	}
+    	return false;
     }
     
     @Override
     public int compareTo(Hand h) {
         //hint: delegate!
 		//and don't worry about breaking ties
+    	return 0;
     }
     
     /**
